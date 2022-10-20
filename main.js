@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const button = document.querySelector('.btn');
+const buttonClear = document.querySelector('.clear')
     
 function removeGrid(squares) {
     squares.forEach((square) => {
@@ -31,9 +32,16 @@ function makeGrid(gridNum = 16) {
 
 makeGrid();
 
+
 button.addEventListener('click', () => {
     let gridNum = +prompt('Enter numbers per side to customize grid: ');
     removeGrid(squares);
     makeGrid(gridNum);
 })
+
+buttonClear.addEventListener('click', () => {
+    squares.forEach((square) => {
+        square.style.background ="white";
+    })
+});
 
