@@ -19,7 +19,7 @@ function makeGrid(gridNum = 16) {
         const square = document.createElement('div');
         square.classList.add('square');
         container.appendChild(square);
-        square.addEventListener("mouseover", () => {
+        square.addEventListener("mouseenter", () => {
             square.style.background = "black";
         });
         square.style.cssText = `height: ${600/gridNum}px; width: ${600/gridNum}px;`
@@ -54,14 +54,14 @@ let buttonOn = 0;
 function makeRgb() {
     if(buttonOn === 0) {
         squares.forEach((square) => {
-            square.addEventListener('mouseover', () => {
+            square.addEventListener('mouseenter', () => {
                 square.style.background = `rgb(${getRandomInt(255)},${getRandomInt(255)},${getRandomInt(255)})`;
             });
         });
         buttonOn++
     } else if(buttonOn === 1) {
         squares.forEach((square) => {
-            square.addEventListener('mouseover', () => {
+            square.addEventListener('mouseenter', () => {
                 square.style.background = `black`;
             });
         });
