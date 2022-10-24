@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 const button = document.querySelector('.btn');
 const buttonClear = document.querySelector('.clear');
 const buttonRgb = document.querySelector('.rgb');
+let buttonOn = 0;
     
 function removeGrid(squares) {
     squares.forEach((square) => {
@@ -28,10 +29,17 @@ function makeGrid(gridNum = 16) {
         }
     }
     squares = document.querySelectorAll('.square');
+
+    if(buttonOn === 1) {
+        squares.forEach((square) => {
+            square.addEventListener('mouseenter', () => {
+                square.style.background = `rgb(${getRandomInt(255)},${getRandomInt(255)},${getRandomInt(255)})`;
+            });
+        });
+    }
 }
 
 makeGrid();
-
 
 button.addEventListener('click', () => {
     let gridNum = +prompt('Enter numbers per side to customize grid: ');
@@ -48,8 +56,6 @@ buttonClear.addEventListener('click', () => {
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
-
-let buttonOn = 0;
 
 function makeRgb() {
     if(buttonOn === 0) {
